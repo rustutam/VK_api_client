@@ -6,7 +6,6 @@ import re
 def print_friends(string):
     pattern = r">(\w+)\s(\w+)<"
     friends = re.findall(pattern, string)
-    print(friends)
     len_s = 25
     print("-" * len_s)
     for human in friends:
