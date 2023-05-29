@@ -19,7 +19,10 @@ class VK_App:
         id_by_screenname_req = f"https://api.vk.com/method/users.get?user_ids={screen_name}" \
             f"&access_token={self.token}&v={self.api_version}"
         response = VK_App.make_request(id_by_screenname_req)
-        return response["response"][0]["id"]
+        try:
+            return response["response"][0]["id"]
+        except IndexError:
+            raise ValueError("user does not exist")
 
     def get_friends_list(self, user_id):
         if not user_id.isdigit():

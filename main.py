@@ -19,11 +19,10 @@ def print_friends(string):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("-uid", required=True,
-                        help="id or domain screen name of user\nexample: -id 122344 OR -id id56567 OR -id pornoiya")
+    parser.add_argument("-uid", required=True)
     parser.add_argument("-aid", required=True, help="id of vk application")
     parser.add_argument("-tkn", required=True,
-                        help="access token of vk application")
+                        help="access_token of vk_app")
     cnsl_args = parser.parse_args().__dict__
     protocols_app = VK_App(cnsl_args["aid"], cnsl_args["tkn"])
     user_id = cnsl_args["uid"]
